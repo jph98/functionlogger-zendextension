@@ -1,8 +1,0 @@
-functionlogger.lo: /root/code/function-logger-extension/src/functionlogger.c
-	$(LIBTOOL) --mode=compile $(CC)  -I. -I/root/code/function-logger-extension/src $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /root/code/function-logger-extension/src/functionlogger.c -o functionlogger.lo 
-$(phplibdir)/functionlogger.la: ./functionlogger.la
-	$(LIBTOOL) --mode=install cp ./functionlogger.la $(phplibdir)
-
-./functionlogger.la: $(shared_objects_functionlogger) $(FUNCTIONLOGGER_SHARED_DEPENDENCIES)
-	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_functionlogger) $(FUNCTIONLOGGER_SHARED_LIBADD)
-
